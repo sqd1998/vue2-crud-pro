@@ -79,20 +79,35 @@ const router = new VueRouter({
 })
 
 //全局前置导航守卫  防止页面非法跳转
+// 路由守卫登录鉴权
 router.beforeEach(function(to, from, next) {
-
     store.commit('getToken')
     const token = store.state.token
-    if (!token && to.name != 'login') {
-        next('/login')
 
-    } else {
+    if (token) {
         next()
+            // 判断是否根据修改地址栏进行的跳转
+        let reloadType = null;
+        try {
+            reloadType = window.performance.navigation.type;
+        } catch (err) {
+            reloadType = 1;
+        }
+        if (reloadType === 0 && !from.name && to.path !== "/home") {
+            console.error("非法改变路由");
+            console.log(reloadType);
+
+            next('/home') // 跳转到首页
+        }
+    } else {
+        next('/')
     }
-
-
-
-
 })
+
+
+
+
+
+
 
 export default router

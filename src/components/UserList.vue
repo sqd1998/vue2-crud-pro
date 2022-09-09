@@ -37,7 +37,7 @@
     </el-table>
     <el-pagination background
                    layout="prev, pager, next"
-                   :total="config.total" class="pager" :current-page.sync="config.page" @current-change="changePage" :page-size="5">
+                   :total="config.total" class="pager" :current-page.sync="config.page" @current-change="changePage" :page-size="20">
     </el-pagination>
   </div>
 </template>
@@ -48,13 +48,13 @@ export default {
     userList: [],
     config:{
         page: 1,
-        total: 50
+        total: 25
     }
   },
   methods: {
     handleEdit(row){
       this.$emit('edit',row)
-      console.log(row);
+      // console.log(row);
       
     },
     handleDelete(row){
@@ -64,7 +64,7 @@ export default {
     },
     changePage(page){
       this.$emit('changePage',page)
-      console.log(page);
+      // console.log(page);
       
       
 

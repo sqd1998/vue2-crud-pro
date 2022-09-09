@@ -11,19 +11,19 @@
         <el-form-item label="用户名"
                       prop="username">
           <el-input v-model="form.username"
-                    type="text"></el-input>
+                    type="text" placeholder="admin"></el-input>
         </el-form-item>
         <el-form-item label="密码"
                       prop="password">
           <el-input v-model="form.password"
-                    type="password"></el-input>
+                    type="password" placeholder="admin"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary"
                      @click="toLogin">立即登录</el-button>
           <el-button type="primary"
                      @click="toRegistration"
-                     class="btn2">立即注册</el-button>
+                     class="btn2" disabled>立即注册</el-button>
         </el-form-item>
 
       </el-form>
@@ -59,7 +59,7 @@ export default {
             const token = res.data.token
             this.$store.commit('setToken', token)
             this.menu = res.data.menu
-            console.log(this.menu)
+            // console.log(this.menu)
 
             this.$router.push('/home')
           } else {
@@ -72,7 +72,7 @@ export default {
         })
         .then(() => {
           bus.$emit('shareMenu', this.menu)
-          console.log(this.menu)
+          // console.log(this.menu)
         })
     },
     toRegistration() {}

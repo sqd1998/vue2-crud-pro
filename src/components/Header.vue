@@ -59,6 +59,11 @@ export default {
       if (command === 'quit') {
         this.$router.push('/')
         // console.log(command)
+        this.$store.commit('clearToken')
+        // console.log(this.$store.state.token);
+        
+        
+
          this.$message({
           
           message: '退出成功',
