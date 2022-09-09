@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import user from './modules/user';
-// import path from './modules/pathList';
+// import user from './modules/user';
+import token from './modules/token';
 
 
 Vue.use(Vuex);
@@ -9,8 +9,9 @@ Vue.use(Vuex);
 
 var vuexStore = new Vuex.Store({
     modules: {
+        token,
+        // user,
 
-        user
     }
 });
 // 使用 export default 封装，让外部可以访问

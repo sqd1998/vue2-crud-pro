@@ -6,6 +6,11 @@ import Main from '../views/Main'
 import Shop from '../views/Shop/Shop'
 import Page1 from '../views/other/page1'
 import Page2 from '../views/other/page2'
+import Login from '../views/Login/login'
+import { Message } from 'element-ui';
+import store from '../store'
+
+
 
 
 const originalPush = VueRouter.prototype.push
@@ -17,7 +22,9 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
     routes: [
-        { path: '/', redirect: '/home' },
+        { path: '/', redirect: '/login' },
+        { path: '/login', component: Login },
+
         {
             path: '/',
             component: Main,
@@ -42,9 +49,9 @@ const router = new VueRouter({
                     },
                 },
                 {
-                    path: '/shop',
+                    path: '/mall',
                     component: Shop,
-                    name: 'shop',
+                    name: 'mall',
                     meta: {
                         title: '商品管理',
                     },
@@ -70,4 +77,22 @@ const router = new VueRouter({
 
     ],
 })
+
+//全局前置导航守卫  防止页面非法跳转
+router.beforeEach(function(to, from, next) {
+
+    store.commit('getToken')
+    const token = store.state.token
+    if (!token && to.name != 'login') {
+        next('/login')
+
+    } else {
+        next()
+    }
+
+
+
+
+})
+
 export default router

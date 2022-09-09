@@ -18,23 +18,25 @@
                   v-for="item in noChildren"
                   :index="item.path"
                   :key="item.path">
-      <i :class="item.icon"></i>
+      <i :class="'el-icon-'+item.icon"></i>
       <span slot="title">{{item.label}}</span>
     </el-menu-item>
 
     <el-submenu index="item.index"
                 v-for="item in hasChildren"
-                :key="item.path"
-                >
+                :key="item.path">
       <template slot="title">
-        <i :class="item.icon"></i>
+        <i :class="'el-icon-'+item.icon"></i>
         <span slot="title">{{item.label}}</span>
       </template>
       <el-menu-item-group v-for="item in item.children"
-                          :key="item.path"
-                          >
+                          :key="item.path">
 
-        <el-menu-item :index="item.path" @click="toView(item)">{{item.label}}</el-menu-item>
+        <el-menu-item :index="item.path"
+                      @click="toView(item)">
+                       <i :class="'el-icon-'+item.icon"></i>
+      <span slot="title">{{item.label}}</span>
+                      </el-menu-item>
       </el-menu-item-group>
 
     </el-submenu>
@@ -71,55 +73,20 @@ export default {
   data() {
     return {
       isCollapse: false,
-      menu: [
-        {
-          path: '/',
-          name: 'home',
-          label: '首页',
-          icon: 'el-icon-menu',
-          url: 'Home/Home'
-        },
-        {
-          path: '/shop',
-          name: 'shop',
-          label: '商品管理',
-          icon: 'el-icon-goods',
-          url: 'MallManage/MallManage'
-        },
-        {
-          path: '/user',
-          name: 'user',
-          label: '用户管理',
-          icon: 'el-icon-setting',
-          url: 'UserManage/UserManage'
-        },
-        {
-          label: '其他',
-          icon: 'el-icon-share',
-          children: [
-            {
-              path: '/page1',
-              name: 'page1',
-              label: '页面1',
-              icon: 'el-icon-upload',
-              url: 'Other/PageOne'
-            },
-            {
-              path: '/page2',
-              name: 'page2',
-              label: '页面2',
-              icon: 'el-icon-upload',
-              url: 'Other/PageTwo'
-            }
-          ]
-        }
-      ]
+      menu: []
     }
   },
   created() {
+    bus.$on('shareMenu', val => {
+      this.menu = val
+    })
+    // console.log(this.val)
     bus.$on('share', val => {
       this.isCollapse = val
     })
+  },
+  beforeCreate() {
+    
   }
 }
 </script>

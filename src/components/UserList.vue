@@ -2,7 +2,7 @@
   <div>
     <el-table :data="userList"
               style="width: 100%"
-              max-height="550">
+              max-height="580">
       <el-table-column prop="name"
                        label="姓名"
                        width="180">

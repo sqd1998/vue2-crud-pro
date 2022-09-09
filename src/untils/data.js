@@ -55,3 +55,13 @@ export const delUserData = ({ id }) => {
 
     })
 }
+
+
+export const getUserPermissions = (params) => {
+    return axios.request({
+        url: '/user/login',
+        method: 'post',
+        data: params,
+
+    })
+}

@@ -125,8 +125,8 @@ export default {
         page: this.config.page,
         name
       }).then(({ data: res }) => {
-        console.log(res);
-        
+        // console.log(res);
+
         // console.log(this.searchFrom.keyword)
         //数据处理  把0变成女
         this.userList = res.list.map(item => {
@@ -155,8 +155,6 @@ export default {
       this.isShow = false
       this.operateForm = { name: '', addr: '', age: '', birth: '', sex: '' }
       this.getList()
-
-
     },
 
     addUser() {
@@ -176,28 +174,22 @@ export default {
         confirmButtonText: '确认',
         cancelButtonText: '取消',
         type: 'warning'
-      })
-        .then(() => {
-          const id = item1
-          // console.log(id);
-          // console.log(val);
+      }).then(() => {
+        const id = item1
+        // console.log(id);
+        // console.log(val);
 
-          delUserData({ id }).then(res => {
+        delUserData({ id }).then(({data:res}) => {
+          if (res.code === 20000) {
             this.getList()
 
             this.$message({
               type: 'success',
               message: '删除成功'
             })
-            // console.log(res)
-          })
+          }
         })
-        .catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          })
-        })
+      })
     }
   },
   mounted() {
@@ -215,6 +207,9 @@ export default {
 
     //     }
     //   })
+  },
+  update() {
+    this.getList()
   }
 }
 </script>

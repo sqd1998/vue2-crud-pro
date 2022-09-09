@@ -5,24 +5,25 @@
                  icon="el-icon-menu"
                  size="mini"
                  @click="controlAside"></el-button>
-      <el-breadcrumb separator-class="el-icon-arrow-right" class="mbx">
+      <el-breadcrumb separator-class="el-icon-arrow-right"
+                     class="mbx">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item :to="{ path: '/' }">管理列表</el-breadcrumb-item>
 
-       
       </el-breadcrumb>
 
       <!-- <h3>面包屑</h3> -->
     </div>
     <div class="R-content">
-      <el-dropdown>
+      <el-dropdown trigger="click"
+                   @command="toLogin">
         <span class="el-dropdown-link">
           <img :src='userImg'
                class="userImg">
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item command="quit">退出</el-dropdown-item>
 
         </el-dropdown-menu>
       </el-dropdown>
@@ -53,11 +54,20 @@ export default {
       this.status = !this.status
       // console.log(this.status);
       bus.$emit('share', this.status)
+    },
+    toLogin(command) {
+      if (command === 'quit') {
+        this.$router.push('/')
+        // console.log(command)
+         this.$message({
+          
+          message: '退出成功',
+          type: 'success'
+        })
+      }
     }
   },
-  components: {
-    
-  },
+  components: {},
   computed: {
     // ...mapState({
     //   tags: state => state.path.pathList

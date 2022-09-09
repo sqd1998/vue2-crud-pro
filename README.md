@@ -1,19 +1,11 @@
-# vue-back-gl
+# vue2-Backend Management
 
-## Project setup
-```
-npm install
-```
+<img src="D:\VUE2\vue-backGL\vue-back-gl\public\登录.PNG" style="zoom:50%;" />
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+------
 
-### Compiles and minifies for production
-```
-npm run build
-```
+<img src="D:\VUE2\vue-backGL\vue-back-gl\public\首页.PNG" style="zoom:50%;" />
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+------
+
+<img src="D:\VUE2\vue-backGL\vue-back-gl\public\用户页面.PNG" style="zoom:50%;" />

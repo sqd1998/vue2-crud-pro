@@ -2,10 +2,10 @@
   <el-form ref="form"
            :model="form"
            :inline="inline"
-           :rules="rules">
+           >
     <el-form-item v-for="item in formLabel"
                   :key="item.label"
-                  :label="item.label" prop="name">
+                  :label="item.label" >
       <el-input v-if="item.type === 'input'"
                 :placeholder="'请输入' + item.label"
                 v-model="form[item.model]" ></el-input>
@@ -41,12 +41,7 @@ export default {
   },
   data() {
     return {
-      rules: {
-        name: [
-            { required: true, message: '这里不能为空', trigger: 'blur' },
-            // { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ],
-      }
+      
     }
   }
 }
