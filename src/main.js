@@ -4,9 +4,10 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from './router/index'
 import 'reset-css'
-// import Service from "./untils/Service";
-import Vuex from 'vuex';
+import axios from 'axios'
+import Vuex from 'vuex'
 import store from './store'
+import { Loading } from 'element-ui';
 // import "./api/mock"
 
 
@@ -16,7 +17,29 @@ if (mock) {
     require('./api/mock')
 }
 
-// Vue.prototype.$axios = Service
+axios.defaults.baseURL = 'http://localhost:3000'
+
+Vue.prototype.$http = axios
+    //声明请求拦截器
+let loadingInstance = null
+axios.interceptors.request.use(config => {
+        //开启loading效果
+        loadingInstance = Loading.service({ fullscreen: true })
+        return config
+    })
+    //声明响应拦截器
+axios.interceptors.response.use(response => {
+    loadingInstance.close()
+        //关闭loading效果
+    return response
+}), error => {
+    if (error.response.status == 302) {
+        return error.response.data
+    }
+    Promise.reject(error)
+
+
+}
 
 
 

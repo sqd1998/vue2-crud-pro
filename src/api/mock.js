@@ -9,7 +9,7 @@ Mock.setup({
     timeout: "200-2000"
 });
 //发出图表数据
-Mock.mock('/home/getData', "get", homeApi.getStatisticalData);
+Mock.mock(/home\/getData/, "get", homeApi.getStatisticalData);
 
 Mock.mock(/user\/add/, "post", userApi.createUser);
 Mock.mock(/user\/edit/, "post", userApi.updateUser);

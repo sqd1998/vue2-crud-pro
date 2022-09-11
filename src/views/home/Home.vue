@@ -202,9 +202,6 @@ export default {
     // })
 
 
-
-
-
     getData().then(res => {
       const { code, data } = res.data
       // console.log(res)
