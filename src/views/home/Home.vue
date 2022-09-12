@@ -1,4 +1,6 @@
 <template>
+<div>
+
   <el-row class="home"
           :gutter="20">
     <el-col :span="8">
@@ -72,8 +74,20 @@
         </el-card>
         </el-card>
       </div>
+      
     </el-col>
+    
   </el-row>
+
+  <el-row :gutter="20">
+  <el-col :span="8"><el-card></el-card></el-col>
+  <el-col :span="8"><el-card></el-card></el-col>
+  <el-col :span="8"><el-card></el-card></el-col>
+</el-row>
+
+</div>
+  
+  
 </template>
 
 <script>
@@ -88,7 +102,7 @@ export default {
   },
   data() {
     return {
-      userImg: require('../../assets/img.jpeg'),
+      userImg: require('../../assets/rabbit.gif'),
       shopDate: [
         {
           name: 'oppo',
@@ -201,7 +215,6 @@ export default {
     //   console.log(err);
     // })
 
-
     getData().then(res => {
       const { code, data } = res.data
       // console.log(res)
@@ -248,12 +261,6 @@ export default {
         ]
       }
     })
-
-
-
-
-
-
 
     //   this.$http.get("http://www.liulongbin.top:3006/api/getbooks").then(res => {
     //       res = res.data;
@@ -339,4 +346,5 @@ export default {
     margin-left: 20px;
   }
 }
+
 </style>

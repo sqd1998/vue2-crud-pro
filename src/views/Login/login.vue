@@ -18,13 +18,15 @@
           <el-input v-model="form.password"
                     type="password" placeholder="admin"></el-input>
         </el-form-item>
+        <keep-alive>
         <el-form-item>
           <el-button type="primary"
-                     @click="toLogin">立即登录</el-button>
+                     @click="toLogin('ruleForm')">立即登录</el-button>
           <el-button type="primary"
                      @click="toRegistration"
                      class="btn2" disabled>立即注册</el-button>
         </el-form-item>
+        </keep-alive>
 
       </el-form>
 
@@ -48,7 +50,12 @@ export default {
         username: [{ required: true, message: '请填写账户', trigger: 'blur' }],
         password: [{ required: true, message: '请填写密码', trigger: 'blur' }]
       },
-      menu: []
+      menu: [],
+      ruleForm: {
+        username: '',
+        password: ''
+          
+        }
     }
   },
   methods: {
@@ -59,11 +66,13 @@ export default {
             const token = res.data.token
             this.$store.commit('setToken', token)
             this.menu = res.data.menu
-            // console.log(this.menu)
-
-            this.$router.push('/home')
+            this.$router.push({
+              path: '/home',
+              query: {
+                menu: JSON.stringify(this.menu)
+              }
+            })
           } else {
-            // console.log(res);
             this.$message({
               message: '账户或者密码有误,请重试',
               type: 'error'

@@ -23,7 +23,10 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item command="quit">退出</el-dropdown-item>
+          <el-dropdown-item>首页</el-dropdown-item>
+          <el-dropdown-item>项目地址</el-dropdown-item>
+
+          <el-dropdown-item command="quit" divided>退出登录</el-dropdown-item>
 
         </el-dropdown-menu>
       </el-dropdown>
@@ -45,7 +48,7 @@ export default {
   },
   data() {
     return {
-      userImg: require('../assets/img.jpeg'),
+      userImg: require('../assets/rabbit.gif'),
       status: false
     }
   },
@@ -93,10 +96,11 @@ header {
   }
 }
 .userImg {
-  width: 40px;
+  width: 43px;
+  margin-top: 3px;
   align-items: center;
   margin-right: 20px;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 
 .L-content {

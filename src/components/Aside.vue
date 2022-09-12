@@ -45,7 +45,10 @@
 </template>
 
 <script>
+
 import bus from '../eventBus'
+
+
 export default {
   name: 'Aside',
   methods: {
@@ -60,7 +63,12 @@ export default {
         name: item.name
       })
       // this.$store.commit('updatePath', item)
-    }
+    },
+    
+        
+  
+
+    
   },
   computed: {
     noChildren() {
@@ -74,20 +82,30 @@ export default {
     return {
       isCollapse: false,
       menu: []
+     
     }
   },
   created() {
     bus.$on('shareMenu', val => {
       this.menu = val
     })
-    // console.log(this.val)
     bus.$on('share', val => {
       this.isCollapse = val
     })
+    this.menu = JSON.parse(this.$route.query.menu)
   },
-  beforeCreate() {
+  mounted () {
+       window.addEventListener("load", () => {
+      
+      // console.log('刷新事件');
+      // console.log(this.menu);      
+    });
     
   }
+    
+
+  
+ 
 }
 </script>
 
