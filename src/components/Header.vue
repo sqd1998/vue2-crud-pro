@@ -16,7 +16,8 @@
     </div>
     <div class="R-content">
       <el-dropdown trigger="click"
-                   @command="toLogin">
+                   @command="handleCommand"
+                   >
         <span class="el-dropdown-link">
           <img :src='userImg'
                class="userImg">
@@ -24,7 +25,7 @@
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
           <el-dropdown-item>首页</el-dropdown-item>
-          <el-dropdown-item>项目地址</el-dropdown-item>
+          <el-dropdown-item command="music">音乐盒</el-dropdown-item>
 
           <el-dropdown-item command="quit" divided>退出登录</el-dropdown-item>
 
@@ -58,22 +59,22 @@ export default {
       // console.log(this.status);
       bus.$emit('share', this.status)
     },
-    toLogin(command) {
+    handleCommand(command) {
       if (command === 'quit') {
         this.$router.push('/')
         // console.log(command)
         this.$store.commit('clearToken')
         // console.log(this.$store.state.token);
-        
-        
-
-         this.$message({
-          
+         this.$message({         
           message: '退出成功',
           type: 'success'
         })
+      } else if (command === 'music'){
+        this.$router.push('/music')
+          
       }
-    }
+    },
+    
   },
   components: {},
   computed: {

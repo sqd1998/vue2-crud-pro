@@ -43,8 +43,8 @@ export default {
   data() {
     return {
       form: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: 'admin'
       },
       rules: {
         username: [{ required: true, message: '请填写账户', trigger: 'blur' }],

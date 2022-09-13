@@ -7,7 +7,8 @@ import Shop from '../views/Shop/Shop'
 import Page1 from '../views/other/page1'
 import Page2 from '../views/other/page2'
 import Login from '../views/Login/login'
-import { Message } from 'element-ui';
+import Music from '../views/Music/music'
+
 import store from '../store'
 
 
@@ -24,6 +25,8 @@ const router = new VueRouter({
     routes: [
         { path: '/', redirect: '/login' },
         { path: '/login', component: Login },
+        { path: '/music', component: Music },
+
 
         {
             path: '/',

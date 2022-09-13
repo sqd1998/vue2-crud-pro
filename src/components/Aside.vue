@@ -118,6 +118,9 @@ export default {
   height: 100%;
   border: none;
   min-height: 115vh;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
   .aside-title {
     color: #fff;
     text-align: center;

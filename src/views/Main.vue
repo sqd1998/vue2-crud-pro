@@ -2,7 +2,7 @@
   <div>
     <el-container style="height: 100%">
       <el-aside width="auto">Aside</el-aside>
-      <el-container>
+      <el-container class="Container">
         <el-header>Header</el-header>
         <el-main><router-view></router-view></el-main>
       </el-container>
@@ -14,7 +14,7 @@
 import elAside from '../components/Aside'
 import elHeader from '../components/Header'
 export default {
-  name: 'Home',
+  name: 'Main',
   components: {
     elAside,
     elHeader
@@ -29,8 +29,7 @@ export default {
 }
 .el-main {
   padding-top: 0 !important;
-  
   background-color: #eeeeee;
-
 }
+
 </style>
