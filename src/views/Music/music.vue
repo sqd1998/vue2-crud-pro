@@ -9,14 +9,19 @@
        <el-button round @click="toGitee">Gitee</el-button>
        <el-button round @click="toGithub">Github</el-button>
      </div>
+     <Evanyou class="bgc"></Evanyou>
   </div>
 </template>
 
 <script>
+
 import aplayer from "vue-aplayer" 
+import Evanyou from "../../components/Evanyou"
+
 export default {
     components: {
-       aplayer
+       aplayer,
+       Evanyou
     },
     data(){
     return{
@@ -28,6 +33,7 @@ export default {
                 src: 'http://music.163.com/song/media/outer/url?id=515454649.mp3',
                 pic: 'https://p2.music.126.net/zyM2NUWMH43vrcObVVF8Hg==/109951164808458773.jpg?param=130y130',
                 lrc: '[00:00.000] 作词 : Wild Cards[00:01.000] 作曲 : Wild Cards[00:27.89]Feel like I’m drunk when I’m sober[00:30.87]You’ve been turning me inside out[00:34.21]Know that I’ve lost my composure[00:36.99]It’s like I’ve been stuck in a blackout[00:40.88]Long night cold sweat I’m shaking[00:44.02]High time low points you take me[00:47.26]Missed calls long texts I’m slipping[00:50.64]Away too deep I’ve drifted[00:53.23][00:54.37]I feel a change in me lately[00:57.41]I’m all worked up when you’re not around[01:00.89]You might think that I’m crazy[01:03.89]But I can’t see straight when I’m falling down[01:17.67]No I can’t see straight when I’m falling down[01:26.18]Oooh[01:31.21]No I can’t see straight when I’m falling down[01:39.90]Oooh[01:44.92]No I can’t see straight when I’m falling down[01:47.93]Lost in a love hangover[01:51.16]Every day you’ve been sticking around[01:54.16]Wishing that I could hold ya[01:58.09]But I’m thinking you’d turn me down[02:01.47]Long night cold sweat I’m shaking[02:04.66]High time low points you take me[02:07.94]Missed calls long texts I’m slipping[02:11.42]Away too deep I’ve drifted[02:14.96]I feel a change in me lately[02:13.81][02:17.89]I’m all worked up when you’re not around[02:21.78]You might think that I’m crazy[02:24.81]But I can’t see straight when I’m falling down[02:38.99]No I can’t see straight when I’m falling down[02:48.26]Oooh[02:53.53]No I can’t see straight when I’m falling down[03:01.61]Oooh[03:06.83]No I can’t see straight when I’m falling down[03:11.71]When I’m falling down[03:15.09]When I’m falling down[03:18.76]When I’m falling down',
+                theme: 'pic'
             },
             {
                 title:'Memory Lane',
@@ -132,5 +138,8 @@ h3 {
   border: 1px solid #999;
 
 
+}
+.bgc {
+  z-index: -1 !important;
 }
 </style>

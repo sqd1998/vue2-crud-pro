@@ -8,6 +8,8 @@ import axios from 'axios'
 import Vuex from 'vuex'
 import store from './store'
 import { Loading } from 'element-ui';
+import ColorThief from '../node_modules/colorthief/dist/color-thief'
+
 // import "./api/mock"
 
 

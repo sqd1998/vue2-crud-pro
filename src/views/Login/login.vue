@@ -31,6 +31,7 @@
       </el-form>
 
     </el-card>
+    <Evanyou class="bgc"></Evanyou>
   </div>
 </template>
 
@@ -38,8 +39,13 @@
 import Mock from 'mockjs'
 import bus from '../../eventBus'
 import { getUserPermissions } from '../../untils/data'
+import Evanyou from "../../components/Evanyou"
+
 export default {
   name: 'login',
+  components: {
+    Evanyou
+  },
   data() {
     return {
       form: {
@@ -105,7 +111,7 @@ export default {
 }
 .main {
   height: 750px;
-  background-color: #eeeeee;
+  // background-color: #eeeeee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,5 +124,9 @@ export default {
 }
 .btn2 {
   margin-left: 66px;
+}
+.bgc {
+  z-index: -1 !important;
+
 }
 </style>
