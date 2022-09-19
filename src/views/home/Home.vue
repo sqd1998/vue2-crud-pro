@@ -39,7 +39,7 @@
       <div class="num">
         <el-card v-for="item in countData"
                  :key="item.index"
-                 :body-style="{display:'flex',padding: 0,width:'280px'}"
+                 :body-style="{display:'flex',padding: 0,width:'279px'}"
                  shadow="hover">
           <div class="count-left">
             <i class="icon"
@@ -206,21 +206,12 @@ export default {
       }
     }
   },
-  methods: {},
-  mounted() {
-    // axios.get('http://www.liulongbin.top:3006/api/getbooks').then(res => {
-    //   console.log(res.data.data)
-    // })
-    // .catch(err => {
-    //   console.log(err);
-    // })
-
-    getData().then(res => {
-      const { code, data } = res.data
+  methods: {
+    async initEchart(){
+       const { data: res } = await getData()       
       // console.log(res)
-
-      if (code === 200) {
-        const order = data.orderData
+      if (res.code === 200) {
+        const order = res.data.orderData
         // console.log(order)
         const xData = order.date //x轴坐标的数据
         const keyArray = Object.keys(order.data[0])
@@ -237,17 +228,17 @@ export default {
         this.echartData.line.xData = xData
         this.echartData.line.series = series
         //柱状图
-        this.echartData.bar.xData = data.userData.map(item => item.date)
+        this.echartData.bar.xData = res.data.userData.map(item => item.date)
         this.echartData.bar.series = [
           {
             name: '新增用户',
-            data: data.userData.map(item => item.new),
+            data: res.data.userData.map(item => item.new),
             //柱状图
             type: 'bar'
           },
           {
             name: '活跃用户',
-            data: data.userData.map(item => item.active),
+            data: res.data.userData.map(item => item.active),
             //柱状图
             type: 'bar'
           }
@@ -255,13 +246,75 @@ export default {
         // 饼状图
         this.echartData.pie.series = [
           {
-            data: data.videoData,
+            data: res.data.videoData,
             type: 'pie'
           }
         ]
       }
-    })
+      
+    }
+  },
+  created(){
+    this.initEchart()
+  },
+  mounted() {
+    //axios原生写法
+    // axios.get('http://www.liulongbin.top:3006/api/getbooks').then(res => {
+    //   console.log(res.data.data)
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // })
 
+
+  //.then写法
+    // getData().then(res => {
+    //   const { code, data } = res.data
+    //   console.log(data)
+
+    //   if (code === 200) {
+    //     const order = data.orderData
+    //     // console.log(order)
+    //     const xData = order.date //x轴坐标的数据
+    //     const keyArray = Object.keys(order.data[0])
+    //     const series = []
+    //     keyArray.forEach(key => {
+    //       series.push({
+    //         name: key,
+    //         data: order.data.map(item => item[key]),
+    //         //折线图
+    //         type: 'line'
+    //       })
+    //     })
+    //     //折线图渲染
+    //     this.echartData.line.xData = xData
+    //     this.echartData.line.series = series
+    //     //柱状图
+    //     this.echartData.bar.xData = data.userData.map(item => item.date)
+    //     this.echartData.bar.series = [
+    //       {
+    //         name: '新增用户',
+    //         data: data.userData.map(item => item.new),
+    //         //柱状图
+    //         type: 'bar'
+    //       },
+    //       {
+    //         name: '活跃用户',
+    //         data: data.userData.map(item => item.active),
+    //         //柱状图
+    //         type: 'bar'
+    //       }
+    //     ]
+    //     // 饼状图
+    //     this.echartData.pie.series = [
+    //       {
+    //         data: data.videoData,
+    //         type: 'pie'
+    //       }
+    //     ]
+    //   }
+    // })
+    //ajax写法
     //   this.$http.get("http://www.liulongbin.top:3006/api/getbooks").then(res => {
     //       res = res.data;
     //       console.log(res);

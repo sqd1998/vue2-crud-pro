@@ -86,9 +86,7 @@ export default {
     }
   },
   created() {
-    bus.$on('shareMenu', val => {
-      this.menu = val
-    })
+    
     bus.$on('share', val => {
       this.isCollapse = val
     })

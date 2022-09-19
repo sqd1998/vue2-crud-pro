@@ -117,14 +117,15 @@ export default {
     }
   },
   methods: {
-    getList(name = '') {
+    async getList(name = '') {
       this.config.loading = true
       // this.config.page = name ? 1 : this.config.page
       name ? (this.config.page = 1) : ''
-      getUser({
+
+        const {data: res} = await getUser({
         page: this.config.page,
         name
-      }).then(({ data: res }) => {
+      })
         // console.log(res);
 
         // console.log(this.searchFrom.keyword)
@@ -135,26 +136,26 @@ export default {
         })
         this.config.total = res.count
         this.config.loading = false
-      })
+      
     },
-    confirm() {
+    async confirm() {
       if (this.operateType === 'edit') {
-        editUserData(this.operateForm).then(res => {
+        const {data: res} = await editUserData(this.operateForm)
           this.isShow = false
           this.getList()
-        })
+        
       } else {
-        addUserData(this.operateForm).then(res => {
+        const {data: res} = await addUserData(this.operateForm)
           this.isShow = false
           this.getList()
           // console.log(res);
-        })
+        
       }
     },
     Cancellation() {
       this.isShow = false
       this.operateForm = { name: '', addr: '', age: '', birth: '', sex: '' }
-      this.getList()
+      // this.getList()
     },
 
     addUser() {
@@ -169,48 +170,29 @@ export default {
       this.operateForm = { ...row }
       // this.getList()
     },
-    delUser(item1) {
-      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+    async delUser(id) {
+      await this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
         confirmButtonText: '确认',
         cancelButtonText: '取消',
         type: 'warning'
-      }).then(() => {
-        const id = item1
-        // console.log(id);
-        // console.log(val);
+      })
 
-        delUserData({ id }).then(({data:res}) => {
+        const {data: res} = await delUserData({ id })
           if (res.code === 20000) {
             this.getList()
-
             this.$message({
               type: 'success',
               message: '删除成功'
-            })
-          }
-        })
-      })
+            }) 
+          }             
     }
   },
-  mounted() {
+  created() {
     this.getList()
-
-    //   getUser({
-    //       page: this.config.page,
-    //       name
-    //     }).then(res => {
-    //     const { code, data } = res.data
-    //     console.log(res)
-    //     if (res.status === 200){
-    //       this.userList = res.data.list
-    //       console.log(this.userList);
-
-    //     }
-    //   })
   },
-  update() {
-    this.getList()
-  }
+  // update() {
+  //   this.getList()
+  // }
 }
 </script>
 

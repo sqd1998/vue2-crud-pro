@@ -37,7 +37,7 @@
 
 <script>
 import Mock from 'mockjs'
-import bus from '../../eventBus'
+// import bus from '../../eventBus'
 import { getUserPermissions } from '../../untils/data'
 import Evanyou from "../../components/Evanyou"
 
@@ -65,9 +65,11 @@ export default {
     }
   },
   methods: {
-    toLogin() {
-      getUserPermissions(this.form)
-        .then(({ data: res }) => {
+    async toLogin() {
+    const {data: res} =  await getUserPermissions(this.form)
+    // console.log(res);
+    
+        
           if (res.code === 20000) {
             const token = res.data.token
             this.$store.commit('setToken', token)
@@ -84,11 +86,10 @@ export default {
               type: 'error'
             })
           }
-        })
-        .then(() => {
-          bus.$emit('shareMenu', this.menu)
-          // console.log(this.menu)
-        })
+          
+        
+        
+        
     },
     toRegistration() {}
   },
