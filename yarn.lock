@@ -3108,6 +3108,11 @@
   dependencies:
     "escape-string-regexp" "^1.0.5"
 
+"file-saver@^2.0.5":
+  "integrity" "sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA=="
+  "resolved" "https://registry.npmmirror.com/file-saver/-/file-saver-2.0.5.tgz"
+  "version" "2.0.5"
+
 "fill-range@^7.0.1":
   "integrity" "sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ=="
   "resolved" "https://registry.npmmirror.com/fill-range/-/fill-range-7.0.1.tgz"
@@ -5052,6 +5057,11 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
+"raw-loader@~0.5.1":
+  "integrity" "sha512-sf7oGoLuaYAScB4VGr0tzetsYlS8EJH6qnTCfQ/WVEa89hALQ4RQfCKt5xCyPQKPDUbVUAIP1QsxAwfAjlDp7Q=="
+  "resolved" "https://registry.npmmirror.com/raw-loader/-/raw-loader-0.5.1.tgz"
+  "version" "0.5.1"
+
 "read-pkg-up@^7.0.1":
   "integrity" "sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg=="
   "resolved" "https://registry.npmmirror.com/read-pkg-up/-/read-pkg-up-7.0.1.tgz"
@@ -5344,6 +5354,13 @@
     "ajv" "^8.8.0"
     "ajv-formats" "^2.1.1"
     "ajv-keywords" "^5.0.0"
+
+"script-loader@^0.7.2":
+  "integrity" "sha512-UMNLEvgOAQuzK8ji8qIscM3GIrRCWN6MmMXGD4SD5l6cSycgGsCo0tX5xRnfQcoghqct0tjHjcykgI1PyBE2aA=="
+  "resolved" "https://registry.npmmirror.com/script-loader/-/script-loader-0.7.2.tgz"
+  "version" "0.7.2"
+  dependencies:
+    "raw-loader" "~0.5.1"
 
 "select-hose@^2.0.0":
   "integrity" "sha512-mEugaLK+YfkijB4fx0e6kImuJdCIt2LxCRcbEYPqRGCs4F2ogyfZU5IAZRdjCP8JPq2AtdNoC/Dux63d9Kiryg=="
@@ -6288,6 +6305,11 @@
   "integrity" "sha512-bGy2JzvzkPowEJV++hF07hAD6niYSr0JzBNo/J29WsB57A2r7Wlc1UFcTR9IzrPvuNVO4B8LGqF8qcpsVOhJCA=="
   "resolved" "https://registry.npmmirror.com/ws/-/ws-8.8.1.tgz"
   "version" "8.8.1"
+
+"xlsx@https://cdn.sheetjs.com/xlsx-0.18.12/xlsx-0.18.12.tgz":
+  "integrity" "sha512-r2BPq7Gfk9zang+UYmC7fy8rWIN+cJ+xkTRoNc0ftO/ZQe7AHAVyTJoWh89vp6E6u9wymyHL2GlC8IuXRww1ww=="
+  "resolved" "https://cdn.sheetjs.com/xlsx-0.18.12/xlsx-0.18.12.tgz"
+  "version" "0.18.12"
 
 "y18n@^5.0.5":
   "integrity" "sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA=="

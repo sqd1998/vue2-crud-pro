@@ -15,8 +15,11 @@
       </div>
     </el-dialog>
     <div class="manage-header">
-      <el-button type="primary"
-                 @click="addUser">+新增</el-button>
+      <div>
+      <el-button type="primary"@click="addUser">+新增</el-button>
+      <el-button type="primary"@click="exportUser">导出表格</el-button>
+      </div>
+      <div>
       <commonForm :formLabel="formLabel"
                   :form="searchFrom"
                   :inline="true"
@@ -24,6 +27,7 @@
         <el-button type="primary"
                    @click="getList(searchFrom.keyword)">搜索</el-button>
       </commonForm>
+      </div>
     </div>
     <div class="manage-body">
       <UserList :userList="userList"
@@ -43,7 +47,7 @@ import {
   addUserData,
   editUserData,
   delUserData
-} from '../../untils/data'
+} from '../../utils/data'
 
 export default {
   name: 'user',
@@ -185,6 +189,42 @@ export default {
               message: '删除成功'
             }) 
           }             
+    },
+    exportUser(){
+      console.log("导出");
+      const tHeader = ['姓名', '性别', '年龄', '出生日期', '地址']
+      const filterVal = ['name', 'sexLabel', 'age', 'birth', 'addr']
+      
+        
+      const list = this.userList
+      console.log(this.userList);
+      
+      const data = this.formatJson(filterVal, list)
+      console.log(data);
+      
+      import('../../utils/ExportExcel').then(excel => {
+      excel.export_json_to_excel({
+       header: tHeader, //表头 必填
+       data, //具体数据 必填
+       filename: 'excel-userlist', //非必填
+       autoWidth: true, //非必填
+       bookType: 'xlsx' //非必填
+  })
+
+  }).then(() => {
+    console.log("完成");
+
+  })
+    
+    },
+     formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => {
+        if (j === 'timestamp') {
+          return parseTime(v[j])
+        } else {
+          return v[j]
+        }
+      }))
     }
   },
   created() {
@@ -201,5 +241,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 70px;
+
 }
+
 </style>

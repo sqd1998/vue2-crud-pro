@@ -6,7 +6,7 @@ import loginApi from "./mockData/login"
 
 //设置200-2000毫秒延迟数据 模拟随机延时效果 
 Mock.setup({
-    timeout: "200-2000"
+    // timeout: "200-2000"
 });
 //发出图表数据
 Mock.mock(/home\/getData/, "get", homeApi.getStatisticalData);

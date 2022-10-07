@@ -38,7 +38,7 @@
 <script>
 import Mock from 'mockjs'
 // import bus from '../../eventBus'
-import { getUserPermissions } from '../../untils/data'
+import { getUserPermissions } from '../../utils/data'
 import Evanyou from "../../components/Evanyou"
 
 export default {

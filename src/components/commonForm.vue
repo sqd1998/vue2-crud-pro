@@ -47,5 +47,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+.el-form-item {
+  margin-bottom: 0px;
+}
 </style>

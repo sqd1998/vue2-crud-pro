@@ -93,7 +93,7 @@
 <script>
 import * as echarts from 'echarts'
 import echart from '../../components/echart'
-import { getData } from '../../untils/data'
+import { getData } from '../../utils/data'
 
 export default {
   name: 'home',
