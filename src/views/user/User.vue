@@ -192,7 +192,7 @@ export default {
     },
     exportUser(){
       console.log("导出");
-      const tHeader = ['姓名', '性别', '年龄', '出生日期', '地址']
+      const tHeader = ['姓名', '性别', '年龄', '出生日期', '地址 ']
       const filterVal = ['name', 'sexLabel', 'age', 'birth', 'addr']
       
         

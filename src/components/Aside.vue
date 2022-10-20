@@ -1,4 +1,5 @@
 <template>
+<div class="el-aside-dev">
   <el-menu default-active="/"
            class="el-menu-vertical-demo"
            @open="handleOpen"
@@ -42,6 +43,7 @@
     </el-submenu>
 
   </el-menu>
+  </div>
 </template>
 
 <script>
@@ -108,17 +110,29 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
+
+.el-aside-dev {
   min-width: 200px;
-  // min-height: 900px;
+  width: auto;
+
 }
+
+ .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
 .el-menu {
-  height: 100%;
+  // height: 100%;
+  // width: 10%;
   border: none;
   min-height: 115vh;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+ 
+  
   .aside-title {
     color: #fff;
     text-align: center;

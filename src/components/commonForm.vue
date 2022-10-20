@@ -10,15 +10,15 @@
                 :placeholder="'请输入' + item.label"
                 v-model="form[item.model]" ></el-input>
       <el-switch v-if="item.type === 'switch'"
-                 v-model="form[item.model]"></el-switch>
+                 v-model="form[item.model]" class="form-switch"></el-switch>
       <el-date-picker v-if="item.type === 'date'"
                       type="date"
                       value-format="yyyy-MM-dd"
                       placeholder="选择日期"
-                      v-model="form[item.model]"></el-date-picker>
+                      v-model="form[item.model]" class="form-date"></el-date-picker>
       <el-select v-if="item.type === 'select'"
                  placeholder="请选择"
-                 v-model="form[item.model]">
+                 v-model="form[item.model]" class="form-select">
         <el-option v-for="item in item.opts"
                    :key="item.value"
                    :label="item.label"
@@ -50,5 +50,12 @@ export default {
 <style lang="less" scoped>
 .el-form-item {
   margin-bottom: 0px;
+  margin-top: 15px;
+
+}
+
+.el-form-item[data-v-21d2cbdf] {
+  margin-top: 0px;
+
 }
 </style>
