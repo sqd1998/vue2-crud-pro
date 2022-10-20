@@ -4,7 +4,7 @@
     <h1>music time</h1>
     <h3>HTML5 music player.</h3>
  <!--music：当前播放的音乐。 list：播放列表 ：showlrc：是否显示歌词-->
-<aplayer :music="audio[0]" :list="audio"  :show-lrc="true" class="onMove"></aplayer>
+<aplayer :music="audio[0]" :list="audio"  :show-lrc="true" class="onMove" listMaxHeight="265px"></aplayer>
      <div class="btn">
        <el-button round @click="toGitee">Gitee</el-button>
        <el-button round @click="toGithub">Github</el-button>
@@ -90,6 +90,13 @@ export default {
                 url: 'http://music.163.com/song/media/outer/url?id=1900002723.mp3',
                 pic: "https://p1.music.126.net/Hc1bVVznektMoCjoNwQl7w==/109951166681312788.jpg?param=130y130" ,
                 lrc: "[00:00.000] 作词 : 许琭琭[00:01.000] 作曲 : 侯江浩[00:02.000] 编曲 : 侯江浩[00:03.000] 制作人 : 侯江浩[00:16.63]今天爱人还未出现[00:21.13]一切好像还没改变[00:24.34]不过我一个人 期待着明天[00:31.31]烟花怦然散开情节[00:35.23]绚烂的夜如此耀眼[00:38.40]温柔承载着我许下的心愿[00:45.67]让渺小的从前变成短短的瞬间[00:52.14]有你让幸福缓缓的呈现[00:59.49]你一出现 阴天变成晴天[01:03.28]隐隐约约 照亮了心里面[01:06.89]心心念念 听你的声音在耳边[01:13.84]你一出现 银河清晖满天[01:17.96]星星点点 连成浪漫幻觉[01:21.76]深深浅浅 勾勒出你我之间的寓言[01:43.96]让渺小的从前变成短短的瞬间[01:50.42]有你让幸福缓缓的呈现[01:57.97]你一出现 阴天变成晴天[02:01.39]隐隐约约 照亮了心里面[02:05.44]心心念念 听你的声音在耳边[02:11.84]你一出现 银河清晖满天[02:16.14]星星点点 连成浪漫幻觉[02:20.02]深深浅浅 勾勒出你我之间的寓言[02:41.80]你一出现 阴天变成晴天[02:45.03]隐隐约约 照亮了心里面[02:49.16]心心念念 听你的声音在耳边[02:55.73]你一出现 银河清晖满天[02:59.66]星星点点 连成浪漫幻觉[03:03.58]深深浅浅 勾勒出你我之间的寓言[03:05.227] 吉他 : 吴海峰[03:07.396] 贝斯 : 苏虹文[03:09.565] 和声 : 小手鹅混音工程师[03:11.734] 混音工程师 : 徐伊豆/褚晨茜@鲸伊Studio[03:13.903] 母带工程师 : 徐伊豆/褚晨茜@鲸伊Studio[03:16.072] 策划 : 吴飞雄[03:18.241] 监制 : 萧跃[03:20.410] 营销推广 : 噼里啪啦Studio[03:22.579] 发行 : 讯飞音乐[03:24.748] 未经著作权人书面许可，不得以任何方式（包括翻唱、翻录等）使用",
+            },
+             {
+                title:'Bite',
+                artist: 'D.O.',
+                url: 'http://music.163.com/song/media/outer/url?id=1989964053.mp3',
+                pic: "https://p2.music.126.net/dGPuRX4Oyni_3cNhHBIR0A==/109951167971994770.jpg?param=130y130" ,
+                lrc: "[00:00.000] 作词 : 김혜정[00:01.000] 作曲 : Gesture/HeyFarmer[00:16.33]흐릿했던 시야가 좀 더 흐려진 기분야[00:23.11]하긴 뭐 매번 불친절한 세상, 세상[00:28.88]거대했던 착각 꽤 아파[00:33.20]It’s miserable miserable[00:35.76]어제와는 뭐라도 좀 다를 거라 믿었던 게 yeah[00:41.00]Mistake mistake, My bad[00:43.98]무심하게 그저 눈 감은 채[00:49.87]고요하길 원해 넌 허나 이번만은 쉽지 않아[00:53.99]잘 봐 날 봐[00:56.56]All I need is[00:57.61]One Bite One Bite[01:00.67]더 삼켜낼수록 강해지는 법[01:03.76]I need just One Bite yeah just One Bite[01:07.34]now you gotta know, yeah you gotta know[01:10.31]어둠의 한 귀퉁이 그 어디쯤[01:13.84]베어 물어 이른 새벽 동 트기 전 right now[01:17.80]One Bite, need just One Bite[01:20.91]now you gotta know, yeah you gotta know yeah[01:28.70]이 밤을 툭 갈라[01:30.51]더 파고들어가[01:32.00]긴 씁쓸함을 독배처럼 삼키네[01:35.44]내 무모한 판단[01:37.57]딱 하나면 돼 난[01:39.38]고독히 울린 howling[01:41.28]기준이 다 달라 말 많아[01:45.22]Unreasonable, reasonable[01:47.87]답이 뭐가 됐든 결코 피해갈 수 없으니까 yeah[01:53.43]No way no way, give up[01:56.08]무심하게 그저 눈 감은 채[02:01.89]고요하길 원해 넌 허나 이번만은 쉽지 않아[02:06.04]잘 봐 날 봐[02:08.31]All I need is[02:09.35]One Bite One Bite[02:12.46]더 삼켜낼수록 강해지는 법[02:15.24]I need just One Bite yeah just One Bite[02:19.37]now you gotta know, yeah you gotta know[02:22.46]어둠의 한 귀퉁이 그 어디쯤[02:25.79]베어 물어 이른 새벽 동 트기 전 right now[02:29.84]One Bite, need just One Bite[02:33.03]now you gotta know, yeah you gotta know yeah[02:36.46]Take out or break out[02:39.98]또 그게 뭐든 상관없지만[02:44.02]너 조심해 이 밤[02:46.29]Cause I will eat you up[02:49.61]All I need is[02:50.44]One Bite One Bite[02:53.58]더 삼켜낼수록 강해지는 법[02:56.54]I need just One Bite yeah just One Bite[03:00.46]now you gotta know, yeah you gotta know[03:03.44]어둠의 한 귀퉁이 그 어디쯤[03:06.92]베어 물어 이른 새벽 동 트기 전 right now[03:10.85]One Bite, need just One Bite[03:14.26]now you gotta know, yeah you gotta know yeah",
             },
         ],
     }

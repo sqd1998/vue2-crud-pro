@@ -81,7 +81,8 @@
 
     <el-row :gutter="20">
       <el-col :span="8">
-        <el-card style="position:relative;" class="el-img-dev">
+        <el-card style="position:relative;"
+                 class="el-img-dev">
           <a href="#">
             <div class="img-desc">
               <img src="../../assets/recruitment5.jpg"
@@ -91,8 +92,30 @@
               <h4 class="img-text-h4">招聘</h4>
               <h5>诚邀东欧、中欧、亚太等全球的科学家、博士、竞赛人才、研发工程师、优秀大学生加盟</h5>
             </div>
-          <div class="mask"></div>
+            <div class="mask"></div>
           </a>
+          <div class="el-ProgressBar">
+            Vue
+            <el-progress :text-inside="true"
+                         :stroke-width="18"
+                         :percentage="90"
+                         ></el-progress>
+            Html5
+            <el-progress :text-inside="true"
+                         :stroke-width="18"
+                         :percentage="80"
+                         color="rgba(142, 113, 199, 0.7)"></el-progress>
+            React
+            <el-progress :text-inside="true"
+                         :stroke-width="18"
+                         :percentage="10"
+                         status="success"></el-progress>
+            Angular
+            <el-progress :text-inside="true"
+                         :stroke-width="18"
+                         :percentage="0"
+                         status="exception"></el-progress>
+          </div>
         </el-card>
       </el-col>
       <el-col :span="16">
@@ -418,7 +441,7 @@ export default {
 }
 .img-text {
   position: absolute;
-  bottom: 30px;
+  top: 150px;
   width: 335px;
   height: auto;
   padding: 20px 30px;
@@ -428,10 +451,7 @@ export default {
     color: #fff;
     width: 300px;
     font-weight: 900;
-
-
   }
-   
 }
 .img-text-h4 {
   font-size: 14px;
@@ -439,23 +459,42 @@ export default {
   color: #fff;
 }
 .el-img-dev:hover img {
-    transform: scale(1.1);
-
+  transform: scale(1.1);
 }
 .el-img-dev:hover .img-text {
-    transform: translateY(-40px);
-    transition: all 0.5s;
+  transform: translateY(-40px);
+  transition: all 0.5s;
 }
 .mask {
-    position: absolute;
-    left: 19px;
-    top: -3px;
-    width: 366px;
-    height: 276px;
-    background-image: linear-gradient( transparent, rgba(0, 0, 0, 0.6));
-    /* 渐变背景 */
-    opacity: 0;
-    transition: all 0.5s;
+  position: absolute;
+  left: 19px;
+  top: -3px;
+  width: 366px;
+  height: 276px;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  /* 渐变背景 */
+  opacity: 0;
+  transition: all 0.5s;
+}
+.el-ProgressBar {
+  width: 365px;
+  height: 180px;
+  margin-top:30px;
+ 
+}
+.el-progress {
+  margin-bottom: 15px;
+  margin-top: 1px;
+  animation: move 2.5s linear infinite;
+
+}
+@keyframes move {
+  from {
+    background-position: 80px 0;
+  }
+  to {
+    background-position:  0;
+  }
 }
 
 </style>
